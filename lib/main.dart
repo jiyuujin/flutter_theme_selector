@@ -38,11 +38,12 @@ class MyApp extends ConsumerWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends ConsumerWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return const ThemePage();
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeMode = ref.watch(themeSelectorProvider);
+    return ThemePage(themeMode: themeMode);
   }
 }

@@ -5,12 +5,12 @@ import 'package:flutter_theme_selector/data/themes.dart';
 import 'package:flutter_theme_selector/widgets/animated_toggle_button.dart';
 
 class ThemePage extends ConsumerWidget {
-  const ThemePage({Key? key}) : super(key: key);
+  const ThemePage({Key? key, required this.themeMode}) : super(key: key);
+
+  final ThemeMode themeMode;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final themeMode = ref.watch(themeSelectorProvider);
-
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
 
