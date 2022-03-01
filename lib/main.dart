@@ -30,8 +30,8 @@ class MyApp extends ConsumerWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Theme Selector',
       themeMode: themeMode,
-      theme: context.lightThemeData(),
-      darkTheme: context.darkThemeData(),
+      theme: Themes().light,
+      darkTheme: Themes().dark,
       home: const MyHomePage(),
       initialRoute: '/',
     );

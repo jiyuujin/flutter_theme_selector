@@ -1,30 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_theme_selector/models/theme_color.dart';
 
-extension BrandThemeData on BuildContext {
-  ThemeData lightThemeData() {
-    return ThemeData.light().copyWith(
-      backgroundColor: Colors.grey.shade100,
-      primaryColor: Colors.blue,
-      textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(
-          primary: Colors.blueGrey[700],
-        ),
+class Themes {
+  final light = ThemeData.light().copyWith(
+    backgroundColor: Colors.white,
+    primaryColor: Colors.blue,
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        primary: Colors.blueGrey[700],
       ),
-    );
-  }
+    ),
+  );
 
-  ThemeData darkThemeData() {
-    return ThemeData.dark().copyWith(
-      backgroundColor: Colors.grey.shade900,
-      primaryColor: Colors.blue,
-      textButtonTheme: TextButtonThemeData(
-        style: TextButton.styleFrom(
-          primary: Colors.blueGrey[200],
-        ),
+  final dark = ThemeData.dark().copyWith(
+    backgroundColor: Colors.black,
+    primaryColor: Colors.blue,
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        primary: Colors.blueGrey[200],
       ),
-    );
-  }
+    ),
+  );
 }
 
 ThemeColor lightMode = ThemeColor(
