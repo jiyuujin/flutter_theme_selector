@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_theme_selector/controllers/theme_controller.dart';
 import 'package:flutter_theme_selector/data/themes.dart';
 import 'package:flutter_theme_selector/widgets/animated_toggle_button.dart';
 
-class ThemePage extends ConsumerWidget {
-  const ThemePage({Key? key, required this.themeMode}) : super(key: key);
+class ThemePage extends StatelessWidget {
+  const ThemePage(
+      {Key? key, required this.themeMode, required this.onToggleCallback})
+      : super(key: key);
 
   final ThemeMode themeMode;
+  final ValueChanged<bool> onToggleCallback;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
 
@@ -101,15 +102,7 @@ class ThemePage extends ConsumerWidget {
                 shadows: themeMode == ThemeMode.dark
                     ? darkMode.shadow
                     : lightMode.shadow,
-                onToggleCallback: (enabled) {
-                  if (enabled) {
-                    ref.read(themeSelectorProvider.notifier).state =
-                        ThemeMode.dark;
-                  } else {
-                    ref.read(themeSelectorProvider.notifier).state =
-                        ThemeMode.light;
-                  }
-                },
+                onToggleCallback: onToggleCallback,
               ),
             ],
           ),
