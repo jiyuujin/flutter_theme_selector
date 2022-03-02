@@ -44,6 +44,14 @@ class MyHomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final themeMode = ref.watch(themeSelectorProvider);
-    return ThemePage(themeMode: themeMode);
+    return ThemePage(
+      themeMode: themeMode,
+      onToggleCallback: (enabled) => {
+        if (enabled)
+          {ref.read(themeSelectorProvider.notifier).state = ThemeMode.dark}
+        else
+          {ref.read(themeSelectorProvider.notifier).state = ThemeMode.light}
+      },
+    );
   }
 }
